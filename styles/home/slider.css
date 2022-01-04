@@ -1,0 +1,50 @@
+.slider-container .slick-list .slick-slide div div img {
+  width: 100%;
+}
+
+.slider-container .slider-pre-btn,
+.slider-container .slider-next-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2px 0 #000000;
+  transition: all 300ms ease-in-out;
+}
+
+.slider-container .slider-pre-btn {
+  left: 20px;
+}
+
+.slider-container .slider-next-btn {
+  right: 20px;
+}
+
+.slider-container .slider-pre-btn i,
+.slider-container .slider-next-btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.slider-container .slider-pre-btn:hover,
+.slider-container .slider-next-btn:hover {
+  width: 45px;
+  height: 45px;
+  transition: all 300ms ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .slider-container .slider-pre-btn,
+  .slider-container .slider-next-btn {
+    display: none;
+  }
+}

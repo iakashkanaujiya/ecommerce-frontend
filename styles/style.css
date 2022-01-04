@@ -1,0 +1,178 @@
+/* import all stylesheets */
+
+@import "./layout/layout.css";
+@import "./auth/auth.css";
+@import "./home/home.css";
+@import "./contact/contact.css";
+@import "./products/products.css";
+@import "./products//singleProduct.css";
+@import "./products/cart.css";
+@import "./user/user.css";
+@import "./checkout/checkout.css";
+@import "./404/404.css";
+@import "./categories/categories.css";
+/* spinner */
+
+#spinner-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 10%);
+}
+
+.spinner {
+  --width: 20px;
+  --color: var(--primary-color-secondary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: calc((var(--width) * -1) / 2);
+  margin-left: calc((var(--width) * -1) / 2);
+  width: var(--width);
+  height: var(--width);
+  border: calc(var(--width) / 10) solid transparent;
+  border-top: calc(var(--width) / 10) solid var(--color);
+  border-left: calc(var(--width) / 10) solid var(--color);
+  border-bottom: calc(var(--width) / 10) solid var(--color);
+  border-radius: 50%;
+  animation: spinLoader 1s infinite linear;
+}
+
+@keyframes spinLoader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* In element spinner */
+
+.loader {
+  --width: 20px;
+  --color: var(--primary-color-secondary);
+  display: inline-block;
+  width: var(--width);
+  height: var(--width);
+  border: calc(var(--width) / 10) solid transparent;
+  border-top: calc(var(--width) / 10) solid var(--color);
+  border-left: calc(var(--width) / 10) solid var(--color);
+  border-bottom: calc(var(--width) / 10) solid var(--color);
+  border-radius: 50%;
+  margin: 0 5px;
+  vertical-align: middle;
+  animation: spinLoader 1s infinite linear;
+}
+
+@keyframes spinLoader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ***************** Confimration Modal Box ******************** */
+
+#confirm.modal-box-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 20%);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#confirm.modal-box-wrap.show {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+#confirm.modal-box-wrap .modal-box {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  min-width: 300px;
+  min-height: 100px;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: var(--background-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+#confirm.modal-box-wrap.show .modal-box {
+  top: 50%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#confirm.modal-box-wrap .modal-box {
+  padding: 20px;
+  text-align: center;
+}
+
+#confirm.modal-box-wrap .modal-box .title {
+  margin-bottom: 20px;
+}
+
+#confirm.modal-box-wrap .modal-box .btns {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#confirm.modal-box-wrap .modal-box .btns .btn {
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+/* *********** Message Modal Pop up ************* */
+
+#message.modal-box-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 20%);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#message.modal-box-wrap.show {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+#message.modal-box-wrap .modal-box {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  min-width: 200px;
+  padding: 10px;
+  background: var(--background-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  border-radius: 1000px;
+  transform: translate(-50%, -50%);
+}
+
+#message.modal-box-wrap.show .modal-box {
+  top: 50%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}

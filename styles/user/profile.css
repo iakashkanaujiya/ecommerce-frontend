@@ -1,0 +1,202 @@
+/* **************************** User Profile Section ************************* */
+
+.user-profile-page .profile-wrap {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 10px;
+  background-color: var(--secondary-color);
+}
+
+.user-profile-page .profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 5px;
+}
+
+.user-profile-page .profile .user-image {
+  width: 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.user-profile-page .profile .image {
+  width: 60px;
+  height: 60px;
+}
+
+.user-profile-page .profile .user-info {
+  flex: 0 0 auto;
+  position: relative;
+  width: calc(100% - 70px);
+  padding-left: 20px;
+}
+
+.user-profile-page .profile .user-info p {
+  margin-bottom: 0.2rem;
+}
+
+.user-profile-page .profile .user-info .profile-edit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.user-profile-page .profile .user-info .profile-edit-btn > a {
+  padding: 2px 4px;
+  border-radius: 2px;
+  border: 1px solid rgb(0 0 0 / 10%);
+}
+
+.user-profile-page .profile-wrap .user-menu {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.user-profile-page .profile-wrap .user-menu .menu-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.user-profile-page .profile-wrap .user-menu .item {
+  padding: 20px 10px;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.user-profile-page .profile-wrap .user-menu .item i {
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 1.4rem;
+}
+
+.user-profile-page .profile-wrap .user-menu .signout-btn {
+  border-bottom: none;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.user-profile-page .profile-wrap .user-menu .signout-btn a {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* ************************** Profile Updation Form *********************************** */
+
+.user-profile-page .profile-edit {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.user-profile-page .error-message {
+  width: 80%;
+  padding: 2px 0;
+  color: rgb(255, 0, 0);
+}
+
+.user-profile-page .form {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.user-profile-page .form .input-box {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.user-profile-page .form .input-box label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .form .input-box label > span {
+  color: rgb(255, 0, 0);
+}
+
+.user-profile-page .form .input-box input {
+  display: block;
+  border: 0;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 5px 0;
+}
+
+.user-profile-page .form .input-box input ~ span {
+  color: rgb(255, 0, 0);
+}
+
+/* ***************** Name Input ***************** */
+
+.user-profile-page .form .input-box.name {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-profile-page .form .input-box.name input {
+  width: 80%;
+}
+
+.user-profile-page .form .input-box .fname {
+  flex: 1 0 50%;
+}
+
+.user-profile-page .form .input-box .lname {
+  flex: 1 0 50%;
+}
+
+@media (max-width: 992px) {
+  .user-profile-page .form .input-box.name {
+    flex-direction: column;
+  }
+  .user-profile-page .form .input-box .fname {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .user-profile-page .form .input-box .lname {
+    flex: 1;
+  }
+}
+
+/* ***************** Email Input ***************** */
+
+.user-profile-page .form .input-box.email input {
+  width: 80%;
+}
+
+/* ***************** Save and Cancel Buttons ******************** */
+
+.user-profile-page .form .btn {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 20px 0;
+}
+
+.user-profile-page .form .btn button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  width: 80px;
+}
+
+.user-profile-page .form .btn.save button {
+  background: var(--primary-color-secondary);
+  color: var(--secondary-color);
+}
+
+.user-profile-page .form .btn.cancel button {
+  background: transparent;
+  border: 1px solid rgb(0 0 0 / 10%);
+}

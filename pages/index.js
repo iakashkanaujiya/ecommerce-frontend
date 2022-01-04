@@ -1,65 +1,92 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Fragment, useEffect, useState } from "react";
+import Head from "next/head";
+import Layout from "../components/layout/Layout";
+import Slider from "../components/home/Slider";
+import { getAllCategories, getAllSubCategories } from "../api/product/category";
 
-export default function Home() {
+const HOSTNAME = process.env.HOSTNAME;
+const ImageRootPath = process.env.BACKEND_HOSTNAME;
+
+const Home = ({ categories, subCategories }) => {
+
   return (
-    <div className={styles.container}>
+    <Fragment>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Just Pantry</title>
+        <meta name="description" content="JustPantry" />
+        <meta name="keywords" content="justpantry" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <Layout>
+        <div id="home-page">
+          <Slider />
+          <div className="product-catelog container-fluid">
+            {
+              categories?.map((category, index) => (
+                <div className="product-category" key={index}>
+                  <div className="title">
+                    <div>{category.name}</div>
+                  </div>
+                  <div className="sub-category-list row">
+                    {
+                      subCategories?.map((subCate, index) => {
+                        if (subCate.category.name == category.name) {
+                          return (
+                            <div className="sub-category-view col-xl-3 col-md-4 col-sm-6 col-6" key={index}>
+                              <a href={`${HOSTNAME}/products/category/sub/${subCate._id}`}>
+                                <div className="image-wrap">
+                                  <img src={`${ImageRootPath}/${subCate.image.src}`} alt={subCate.name} className="image" />
+                                </div>
+                              </a>
+                            </div>
+                          )
+                        }
+                      })
+                    }
+                  </div>
+                </div>
+              ))
+            }
+          </div>
         </div>
-      </main>
+      </Layout>
+    </Fragment>
+  );
+};
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+// Fetch the data
+export const getServerSideProps = async () => {
+
+  const categories = await getAllCategories();
+  const subCategories = await getAllSubCategories();
+
+  if (!categories || !subCategories) {
+    return {
+      notFound: true
+    }
+  }
+
+  if (categories.error || subCategories.error) {
+    return {
+      notFound: true
+    }
+  }
+
+  return {
+    props: { categories, subCategories }
+  }
+
+};
+
+export default Home;
+

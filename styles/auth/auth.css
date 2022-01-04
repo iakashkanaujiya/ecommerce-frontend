@@ -1,0 +1,115 @@
+.form-container-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 40px 0;
+  background: rgb(0 0 0 / 10%);
+}
+
+.form-container-wrap .form .form-div {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 300px;
+  margin: 0 auto;
+  margin-left: -150px;
+  padding: 20px 0;
+  animation: fadeIn 300ms ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.form-container-wrap .form .form-div .title {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.form-container-wrap .form .form-div .input-div {
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.form-container-wrap .form .form-div label {
+  display: block;
+  padding: 5px 0;
+  font-size: 0.8rem;
+}
+
+.form-container-wrap .form .form-div .phone-input {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.form-container-wrap .form .form-div .phone-input i {
+  flex: 0 0 auto;
+  width: 15%;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.form-container-wrap .form .form-div .phone-input input {
+  flex: 0 0 auto;
+  width: 80%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.form-container-wrap .form .form-div .btn-wrap {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.form-container-wrap .form .form-div .btn-wrap .btn {
+  width: 100%;
+  padding: 8px 15px;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  box-shadow: inset 0 0 10px rgb(0 0 0 / 20%);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.form-container-wrap .form .form-div .btn-wrap .btn:disabled {
+  background-color: var(--primary-color);
+  opacity: 0.8;
+}
+
+.form-container-wrap .form .form-div .btn-wrap .btn:hover {
+  box-shadow: inset 0 0 10px rgb(0 0 0 / 10%);
+}
+
+/* ****************** Verification Form ***************** */
+
+.form-container-wrap .form .form-div .code-box {
+  border: none;
+}
+
+.form-container-wrap .form .form-div .code-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 0;
+}
+
+.form-container-wrap .form .form-div .code-input > * {
+  flex: 0 0 auto;
+  width: 20%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: transparent;
+}

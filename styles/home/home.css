@@ -1,0 +1,36 @@
+@import "./slider.css";
+/* ################ */
+
+#home-page .product-catelog {
+    padding: 40px 0;
+}
+
+#home-page .product-catelog .product-category {
+    padding: 40px 0;
+}
+
+#home-page .product-catelog .product-category .title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+
+#home-page .product-catelog .product-category .sub-category-list {
+    justify-content: center;
+}
+
+#home-page .product-catelog .product-category .sub-category-view {
+    border: 1px solid rgba(0 0 0 / 10%);
+    transition: .3s;
+}
+
+#home-page .product-catelog .product-category .sub-category-view .image {
+    width: 100%;
+}
+
+
+
+
+

@@ -1,0 +1,258 @@
+/* ****************************************** Manage Address *******************************************  */
+
+.my-address .address-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 6%);
+}
+
+.my-address .address-wrap .address-preview-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.my-address .address-wrap .add-new {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .add-new .btn {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 0;
+  border: 1px dashed rgb(0 0 0 / 20%);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.my-address .address-wrap .add-new .btn a {
+  display: block;
+  width: 100%;
+}
+
+.my-address .address-wrap .address-preview {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.my-address .address-wrap .address-preview p {
+  margin-bottom: 5px;
+}
+
+.my-address .address-wrap .address-preview .btn {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: var(--primary-color-secondary);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.my-address .address-wrap .address-preview .btn a {
+  color: var(--secondary-color);
+}
+
+.my-address .address-wrap .address-preview .btn.delete {
+  background: transparent;
+  border: 1px solid rgb(0 0 0 / 10%);
+  color: var(--primary-color);
+}
+
+/* Address form */
+
+.my-address .address-wrap .address-form {
+  padding: 20px;
+  width: 100%;
+}
+
+.my-address .address-wrap .address-form .message-div {
+  color: rgb(255, 0, 0);
+  width: 100%;
+  padding: 5px 0;
+  margin-bottom: 20px;
+}
+
+.my-address .address-wrap .address-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.my-address .address-wrap .address-form .input-box span {
+  color: rgb(255, 0, 0);
+}
+
+.my-address .address-wrap .address-form :is(input, select) {
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.my-address .address-wrap .address-form .fullname {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  padding-top: 0;
+}
+
+.my-address .address-wrap .address-form .firstname {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.my-address .address-wrap .address-form .lastname {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.my-address .address-wrap .address-form .fullname input {
+  display: block;
+  padding: 5px;
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .my-address .address-wrap .address-form .fullname {
+    flex-direction: column;
+  }
+  .my-address .address-wrap .address-form .firstname {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .my-address .address-wrap .address-form .lastname {
+    width: 100%;
+  }
+  .my-address .address-wrap .address-form .fullname input {
+    width: 90%;
+  }
+}
+
+.my-address .address-wrap .address-form .local-address {
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .local-address > input {
+  display: block;
+  padding: 5px;
+  width: 90%;
+}
+
+.my-address
+  .address-wrap
+  .address-form
+  .local-address
+  > input:nth-child(2) {
+  margin-bottom: 20px;
+}
+
+.my-address .address-wrap .address-form .country {
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .country-selector {
+  display: block;
+  padding: 5px;
+  width: 90%;
+}
+
+.my-address .address-wrap .address-form .state {
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .state-selector {
+  display: block;
+  padding: 5px;
+  width: 90%;
+}
+
+.my-address .address-wrap .address-form .city {
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .city > input {
+  display: block;
+  padding: 5px;
+  width: 90%;
+}
+
+.my-address .address-wrap .address-form .area-code {
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .area-code > input {
+  display: block;
+  padding: 5px;
+  width: 90%;
+}
+
+.my-address .address-wrap .address-form .phone {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .phone input {
+  padding: 5px;
+  width: 80%;
+}
+
+.my-address .address-wrap .address-form .phone .primary {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.my-address .address-wrap .address-form .phone .secondary {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .my-address .address-wrap .address-form .phone {
+    display: block;
+  }
+  .my-address .address-wrap .address-form .phone .primary {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .my-address .address-wrap .address-form .phone .secondary {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .my-address .address-wrap .address-form .phone input {
+    width: 90%;
+  }
+}
+
+.my-address .address-wrap .address-form .phone {
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .btns {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.my-address .address-wrap .address-form .btns > .btn {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color-secondary);
+  color: var(--secondary-color);
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.my-address .address-wrap .address-form .btns > .btn.cancel {
+  background: transparent;
+  border: 1px solid rgb(0 0 0 / 10%);
+  color: var(--primary-color);
+}
