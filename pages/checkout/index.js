@@ -17,7 +17,7 @@ import PaymentOption from "../../components/checkout/paymentOptions";
 import CheckoutBox from "../../components/checkout/checkout";
 
 // Hostname
-const HOSTNAME = process.env.HOSTNAME;
+const HOSTNAME = process.env.URL;
 
 // Component
 const Checkout = () => {

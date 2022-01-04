@@ -3,7 +3,7 @@ import Head from "next/head";
 import Layout from "../../../components/layout/Layout";
 import { isAuthenticated } from "../../../api/auth/authApi";
 import Redirect from "../../../Redirect";
-const HOSTNAME = process.env.HOSTNAME;
+const HOSTNAME = process.env.URL;
 
 const User = () => {
 

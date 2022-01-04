@@ -7,7 +7,7 @@ import Menu from "../../../components/user/Menu";
 import AddressForm from "../../../components/user/address/form";
 import { addUserAddress } from "../../../api/user/user";
 
-const HOSTNAME = process.env.HOSTNAME;
+const HOSTNAME = process.env.URL;
 
 const Address = () => {
 

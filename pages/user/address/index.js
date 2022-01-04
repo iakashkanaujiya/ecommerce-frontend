@@ -14,7 +14,7 @@ import Addresses from "../../../components/user/address/addresses";
 import DeleteConfirmModal from "../../../components/modalPopup/deleteConfirmModal";
 
 // Hostname
-const HOSTNAME = process.env.HOSTNAME;
+const HOSTNAME = process.env.URL;
 
 const Address = () => {
     // Redirect user to Sign In page if not signed In
