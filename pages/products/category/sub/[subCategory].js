@@ -16,46 +16,6 @@ import SideBar from "../../../../components/products/sidebar";
 const HOSTNAME = process.env.HOSTNAME;
 
 const Products = ({ products, categories, subCategories }) => {
-    // Show Confirmation Modal Box when product added sucessfully in cart
-    const [productAddedModalBox, setProductAddedModalBox] = useState(false);
-
-    // Add Item to Shopping Cart
-    const addItemToShoppingCart = (item) => {
-        // Item price, selling Price, and weight
-        let price = item.variation[Object.keys(item.variation)[0]][0].price;
-        let sellingPrice = item.variation[Object.keys(item.variation)[0]][0].sellingPrice;
-        let weight = item.variation[Object.keys(item.variation)[0]][0].value;
-
-        delete item.variation;
-        delete item.description;
-        delete item.createdAt;
-        delete item.updatedAt;
-        delete item.stock;
-        delete item.category;
-        delete item.subCategory;
-        // Item Object
-        item = {
-            product: {
-                ...item,
-                weight,
-                price: parseFloat(price),
-                sellingPrice: parseFloat(sellingPrice),
-                image: item.images[0]
-            },
-            totalPrice: parseFloat(price),
-            subTotal: parseFloat(sellingPrice),
-            totalSavings: parseFloat(price) - parseFloat(sellingPrice),
-            unit: weight,
-            quantity: 1
-        };
-        delete item.product.images;
-        // Add Item to Cart
-        addItemtoCart(item);
-        setProductAddedModalBox(true);
-        setTimeout(() => {
-            setProductAddedModalBox(false);
-        }, 4000)
-    };
 
     return (
         <Fragment>
@@ -78,21 +38,8 @@ const Products = ({ products, categories, subCategories }) => {
                         <div className="col-lg-9 col-md-12 main">
                             <ProductsList
                                 products={products}
-                                addItemToShoppingCart={addItemToShoppingCart}
+                                HOSTNAME={HOSTNAME}
                             />
-                        </div>
-                    </div>
-                    <div className="modal-box">
-                        <div className={productAddedModalBox ? "product-added-confirm-box show" : "product-added-confirm-box"}>
-                            <div className="message">
-                                <p>Product Sucessfully Added to Cart.</p>
-                            </div>
-                            <div className="btns">
-                                <button className="btn go-to-cart">
-                                    <a href={`${HOSTNAME}/cart`}>Go to Cart</a>
-                                </button>
-                                <button onClick={() => { setProductAddedModalBox(false) }} className="btn close">Close</button>
-                            </div>
                         </div>
                     </div>
                 </div>

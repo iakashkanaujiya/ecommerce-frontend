@@ -12,6 +12,7 @@ import Layout from "../../components/layout/Layout";
 import ProductPreview from "../../components/products/product/product";
 import RelatedProducts from "../../components/products/product/relatedProducts";
 
+const HOSTNAME = process.env.HOSTNAME;
 
 const Product = ({ data, relatedProducts }) => {
 
@@ -174,6 +175,7 @@ const Product = ({ data, relatedProducts }) => {
                         </div>
                         <RelatedProducts
                             products={relatedProducts}
+                            HOSTNAME={HOSTNAME}
                         />
                     </div>
                 </div>

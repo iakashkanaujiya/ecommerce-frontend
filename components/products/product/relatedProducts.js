@@ -1,7 +1,6 @@
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
-const HOSTNAME = process.env.HOSTNAME;
 
-const RelatedProducts = ({ products }) => {
+const RelatedProducts = ({ products, HOSTNAME }) => {
     return (
         <div className="row related-products">
             <div className="title">
