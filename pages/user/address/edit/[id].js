@@ -8,7 +8,7 @@ import { updateUserAddress, getAddress } from "../../../../api/user/user";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-const HOSTNAME = process.env.URL;
+const HOSTNAME = process.env.HOSTNAME;
 
 const Address = ({ addressData }) => {
 

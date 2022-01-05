@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout";
 import Slider from "../components/home/Slider";
 import { getAllCategories, getAllSubCategories } from "../api/product/category";
 
-const HOSTNAME = process.env.URL;
+const HOSTNAME = process.env.HOSTNAME;
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
 const Home = ({ categories, subCategories }) => {

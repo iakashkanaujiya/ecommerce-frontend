@@ -9,7 +9,7 @@ import Layout from "../../components/layout/Layout";
 
 // Image Root Path and Hostname
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
-const HOSTNAME = process.env.URL;
+const HOSTNAME = process.env.HOSTNAME;
 
 const Categories = ({ categories, subCategories }) => {
     return (
