@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
-const HOSTNAME = process.env.HOSTNAME;
 
 const ProductsFilter = ({ categories, category }) => {
 
@@ -18,7 +17,7 @@ const ProductsFilter = ({ categories, category }) => {
     const onSelectFilterOption = () => {
         if (categoryId) {
             setShowFilterOption(false);
-            router.push(`${HOSTNAME}/products/category/${categoryId}`);
+            router.push(`/products/category/${categoryId}`);
         }
     };
 

@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 
 // API methods
 import { isAuthenticated } from "../../../api/auth/authApi";
@@ -20,7 +19,7 @@ const Address = () => {
     // Redirect user to Sign In page if not signed In
     const RedirectUserIfNotAuthenticated = () => {
         if (!isAuthenticated()) {
-            return <Redirect to={`${HOSTNAME}/auth/signin`} />
+            return <Redirect to={`/auth/signin`} />
         }
     }
 
@@ -123,9 +122,9 @@ const Address = () => {
                                                 />
                                                 <div className="add-new">
                                                     <button className="btn">
-                                                        <Link href={`${HOSTNAME}/user/address/new`}>
+                                                        <a href={`${HOSTNAME}/user/address/new`}>
                                                             Add new address
-                                                        </Link>
+                                                        </a>
                                                     </button>
                                                 </div>
                                             </div>

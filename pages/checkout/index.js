@@ -90,7 +90,7 @@ const Checkout = () => {
                 router.back();
             }
         } else {
-            router.push(`${HOSTNAME}/auth/signin`);
+            router.push(`/auth/signin`);
         }
     }, []);
 

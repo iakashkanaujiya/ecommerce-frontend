@@ -3,7 +3,7 @@ import Head from "next/head";
 
 // API methods
 import { isAuthenticated } from "../../../api/auth/authApi";
-import { getOrder, updateOrderStatus } from "../../../api/order/order";
+import { getOrder } from "../../../api/order/order";
 
 // components
 import Layout from "../../../components/layout/Layout";

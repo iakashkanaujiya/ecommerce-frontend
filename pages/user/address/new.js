@@ -7,8 +7,6 @@ import Menu from "../../../components/user/Menu";
 import AddressForm from "../../../components/user/address/form";
 import { addUserAddress } from "../../../api/user/user";
 
-const HOSTNAME = process.env.HOSTNAME;
-
 const Address = () => {
 
     // error, loading, Success
@@ -20,14 +18,14 @@ const Address = () => {
     // Redirect user to Sign In page if not signed In
     const RedirectUserIfNotAuthenticated = () => {
         if (!isAuthenticated()) {
-            return <Redirect to={`${HOSTNAME}/auth/signin`} />
+            return <Redirect to={`/auth/signin`} />
         }
     }
 
     // Redirect User to Address page when sucessfully saved the address
     const RedirectToAddressPage = () => {
         if (redirect) {
-            return <Redirect to={`${HOSTNAME}/user/address`} />
+            return <Redirect to={`/user/address`} />
         }
     };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
 const ImageSlider = ({ images }) => {

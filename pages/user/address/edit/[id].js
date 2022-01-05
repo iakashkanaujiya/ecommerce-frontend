@@ -8,8 +8,6 @@ import { updateUserAddress, getAddress } from "../../../../api/user/user";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-const HOSTNAME = process.env.HOSTNAME;
-
 const Address = ({ addressData }) => {
 
     const router = useRouter();
@@ -22,22 +20,16 @@ const Address = ({ addressData }) => {
     // Redirect user to Sign In page if not signed In
     const RedirectUserIfNotAuthenticated = () => {
         if (!isAuthenticated()) {
-            return <Redirect to={`${HOSTNAME}/auth/signin`} />
+            return <Redirect to={`/auth/signin`} />
         }
     }
 
     // Redirect User to Address page when sucessfully saved the address
     const RedirectToAddressPage = () => {
         if (redirect) {
-            return <Redirect to={`${HOSTNAME}/user/address`} />
+            return <Redirect to={`/user/address`} />
         }
     };
-
-    // countries Data
-    const [countriesData, setCountriesData] = useState({
-        countries: [],
-        states: []
-    });
 
     // user authentication data
     const [userData, setUserData] = useState({
