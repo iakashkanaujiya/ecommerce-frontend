@@ -131,7 +131,7 @@ const MobileHeader = () => {
                 <div className="header-belt">
                     <div className="header-left">
                         <button className="btn category">
-                            <a href="/categories`">
+                            <a href="/categories">
                                 Products
                             </a>
                         </button>
