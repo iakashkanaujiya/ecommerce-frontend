@@ -12,9 +12,6 @@ import Menu from "../../../components/user/Menu";
 import Addresses from "../../../components/user/address/addresses";
 import DeleteConfirmModal from "../../../components/modalPopup/deleteConfirmModal";
 
-// Hostname
-const HOSTNAME = process.env.HOSTNAME;
-
 const Address = () => {
     // Redirect user to Sign In page if not signed In
     const RedirectUserIfNotAuthenticated = () => {
@@ -122,7 +119,7 @@ const Address = () => {
                                                 />
                                                 <div className="add-new">
                                                     <button className="btn">
-                                                        <a href={`${HOSTNAME}/user/address/new`}>
+                                                        <a href="/user/address/new">
                                                             Add new address
                                                         </a>
                                                     </button>
