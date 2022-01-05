@@ -97,6 +97,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 20px;
+  background-color: var(--secondary-color);
 }
 
 .user-profile-page .error-message {

@@ -58,12 +58,14 @@ const MobileHeader = () => {
     const [search, setSearch] = useState(null);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleSearch = (event) => {
-        if(event.target.value == "") {
+        if (event.target.value == "") {
             setSearch(null);
         } else {
             setSearch(event.target.value);
+            setLoading(true);
         }
     };
 
@@ -72,6 +74,7 @@ const MobileHeader = () => {
             if (data.error) {
                 setError(data.error);
             } else {
+                setLoading(false);
                 setProducts(data);
             }
         }).catch(err => console.log(err));
@@ -81,7 +84,7 @@ const MobileHeader = () => {
         if (window !== "undefined") {
             window.addEventListener("scroll", () => {
                 const el = document.querySelector(".header-main-mobile .header-top");
-                if(el) {
+                if (el) {
                     if (window.pageYOffset > 20) {
                         el.style.padding = "5px 20px";
                         el.style.transition = ".3s ease-in-out";
@@ -140,26 +143,35 @@ const MobileHeader = () => {
                         </div>
                     </div>
                 </div>
-                {!!products.length && (
+                {search != null && (
                     <div className="search-result-wrap">
                         <div className="search-result">
                             <ul className="result-list">
-                                {products.map((product, index) => (
-                                    <li key={index} className="product">
-                                        <a href={`/products/${product._id}`}>
-                                            <div className="image-wrap">
-                                                <img className="image" src={`${ImageRootPath}/${product.images[0].src}`} alt={product.images[0].alt} />
-                                            </div>
-                                            <div className="details">
-                                                <p className="name">{product.name}</p>
-                                                <p className="price">
-                                                    <span>₹{product.variation[Object.keys(product.variation)[0]][0].sellingPrice}</span>
-                                                    <span> ({product.variation[Object.keys(product.variation)[0]][0].value})</span>
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                ))}
+                                {loading
+                                    ? (
+                                        <div style={{ width: "100%", height: "400px" }}>
+                                            <div className="spinner" style={{ "--width": "50px" }}></div>
+                                        </div>
+                                    )
+                                    : (
+                                        products.map((product, index) => (
+                                            <li key={index} className="product">
+                                                <a href={`/products/${product._id}`}>
+                                                    <div className="image-wrap">
+                                                        <img className="image" src={`${ImageRootPath}/${product.images[0].src}`} alt={product.images[0].alt} />
+                                                    </div>
+                                                    <div className="details">
+                                                        <p className="name">{product.name}</p>
+                                                        <p className="price">
+                                                            <span>₹{product.variation[Object.keys(product.variation)[0]][0].sellingPrice}</span>
+                                                            <span> ({product.variation[Object.keys(product.variation)[0]][0].value})</span>
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        ))
+                                    )
+                                }
                             </ul>
                         </div>
                     </div>

@@ -4,8 +4,6 @@ import Layout from "../../../components/layout/Layout";
 import { isAuthenticated } from "../../../api/auth/authApi";
 import Redirect from "../../../Redirect";
 
-const HOSTNAME = process.env.HOSTNAME;
-
 const User = () => {
 
     // Redirect user to Sign In page if not signed In
@@ -47,43 +45,43 @@ const User = () => {
             <div className="user-menu">
                 <ul className="menu-list">
                     <li className="item">
-                        <a href={`${HOSTNAME}/`}>
+                        <a href="/">
                             <i className="bi bi-house-fill icon" />
                             <span>At Home</span>
                         </a>
                     </li>
                     <li className="item">
-                        <a href={`${HOSTNAME}/user/address`}>
+                        <a href="/user/address">
                             <i className="bi bi-geo-alt-fill" />
                             <span>My Addresses</span>
                         </a>
                     </li>
                     <li className="item">
-                        <a href={`${HOSTNAME}/user/orders`}>
+                        <a href="/user/orders">
                             <i className="bi bi-bag-fill" />
                             <span>My Orders</span>
                         </a>
                     </li>
                     <li className="item">
-                        <a href={`${HOSTNAME}/cart`}>
+                        <a href="/cart">
                             <i className="bi bi-cart-dash-fill" />
                             <span>My Cart</span>
                         </a>
                     </li>
                     <li className="item">
-                        <a href={`${HOSTNAME}/about`}>
+                        <a href="/about">
                             <i className="bi bi-building" />
                             <span>About Us</span>
                         </a>
                     </li>
                     <li className="item">
-                        <a href={`${HOSTNAME}/contact`}>
+                        <a href="/contact">
                             <i className="bi bi-chat-right-text" />
                             <span>Contact Us</span>
                         </a>
                     </li>
                     <li className="item signout-btn">
-                        <a href={`${HOSTNAME}/auth/signout`}>
+                        <a href="/auth/signout">
                             <i className="bi bi-person-x-fill" />
                             <span>Sign Out</span>
                         </a>
@@ -120,7 +118,7 @@ const User = () => {
                                                 <p>{phone}</p>
                                             </div>
                                             <div className="profile-edit-btn">
-                                                <a href={`${HOSTNAME}/user/profile/edit?id=${id}`}>
+                                                <a href={`/user/profile/edit?id=${id}`}>
                                                     <span>Edit</span>
                                                 </a>
                                             </div>
