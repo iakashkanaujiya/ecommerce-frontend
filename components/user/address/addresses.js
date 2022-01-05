@@ -1,8 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
 
-const HOSTNAME = process.env.HOSTNAME;
-
 const Addresses = ({ allAddresses, onDeleteAddress }) => {
     return (
         <Fragment>
@@ -14,7 +12,7 @@ const Addresses = ({ allAddresses, onDeleteAddress }) => {
                         <p>{add.city + ", " + add.state + ", " + add.postalCode}</p>
                         <p>{add.primaryPhone}{!!add.secondaryPhone && (<span>, {add.secondaryPhone}</span>)}</p>
                         <button className="btn edit">
-                            <Link href={`${HOSTNAME}/user/address/edit/${add._id}`}>Edit</Link>
+                            <a href={`/user/address/edit/${add._id}`}>Edit</a>
                         </button>
                         <button
                             onClick={() => { onDeleteAddress(add._id) }}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getAllCategories } from '../../../api/product/category';
-const HOSTNAME = process.env.HOSTNAME;
 
 const Navbar = () => {
 
@@ -30,11 +29,11 @@ const Navbar = () => {
                             <div className="column-1">
                                 <ul className="sab-nav-menu">
                                     <li className="nav-item">
-                                        <a href={`${HOSTNAME}/products`}>All Products</a>
+                                        <a href="/products">All Products</a>
                                     </li>
                                     {categories.map((category, index) => (
                                         <li key={index} className="nav-item">
-                                            <a href={`${HOSTNAME}/products/category/${category._id}`}>{category.name}</a>
+                                            <a href={`/products/category/${category._id}`}>{category.name}</a>
                                         </li>
                                     ))}
                                 </ul>
@@ -43,10 +42,10 @@ const Navbar = () => {
                     </div>
                 </li>
                 <li className="menu-item">
-                    <a href={`${HOSTNAME}/about`}>Company</a>
+                    <a href="/about">Company</a>
                 </li>
                 <li style={{ paddingRight: "0px" }} className="menu-item">
-                    <a href={`${HOSTNAME}/contact`}>Contact</a>
+                    <a href="/contact">Contact</a>
                 </li>
             </ul>
         </nav>

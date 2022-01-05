@@ -4,7 +4,6 @@ import { loadCart } from "../../../api/product/cart";
 import Navbar from "./Navbar";
 import { searchProduct } from "../../../api/product/product";
 
-const HOSTNAME = process.env.HOSTNAME;
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
 const DesktopHeader = () => {
@@ -91,7 +90,7 @@ const DesktopHeader = () => {
                                     <ul className="result-list">
                                         {products.map((product, index) => (
                                             <li key={index} className="product">
-                                                <a href={`${HOSTNAME}/products/${product._id}`}>
+                                                <a href={`/products/${product._id}`}>
                                                     <div className="image-wrap">
                                                         <img className="image" src={`${ImageRootPath}/${product.images[0].src}`} alt={product.images[0].alt} />
                                                     </div>
@@ -128,25 +127,25 @@ const DesktopHeader = () => {
                                                 <li className="menu-item">
                                                     <div>
                                                         <i className="bi bi-person-fill"></i>
-                                                        <a href={`${HOSTNAME}/user/profile`}>Your Profile</a>
+                                                        <a href="/user/profile">Your Profile</a>
                                                     </div>
                                                 </li>
                                                 <li className="menu-item">
                                                     <div>
                                                         <i className="bi bi-cart4"></i>
-                                                        <a href={`${HOSTNAME}/user/orders`}>Your Orders</a>
+                                                        <a href="/user/orders">Your Orders</a>
                                                     </div>
                                                 </li>
                                                 <li className="menu-item">
                                                     <div>
                                                         <i className="bi bi-geo-alt-fill"></i>
-                                                        <a href={`${HOSTNAME}/user/address`}>Manage Address</a>
+                                                        <a href="/user/address">Manage Address</a>
                                                     </div>
                                                 </li>
                                                 <li className="menu-item">
                                                     <div>
                                                         <i className="bi bi-person-x-fill"></i>
-                                                        <a href={`${HOSTNAME}/auth/signout`}>Sign Out</a>
+                                                        <a href="/auth/signout">Sign Out</a>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -155,7 +154,7 @@ const DesktopHeader = () => {
                                 )
                                 : (
                                     <div className="signin">
-                                        <a href={`${HOSTNAME}/auth/signin`} className="signin-btn">
+                                        <a href="/auth/signin" className="signin-btn">
                                             <i className="bi bi-person-fill"></i>
                                             <span style={{ marginLeft: "5px" }}>Sign In</span>
                                         </a>
@@ -163,7 +162,7 @@ const DesktopHeader = () => {
                                 )
                             }
                             <div className="cart">
-                                <a href={`${HOSTNAME}/cart`} className="shopping-cart-btn">
+                                <a href="/cart" className="shopping-cart-btn">
                                     <i className="bi bi-cart4"></i>
                                     <span style={{ marginLeft: "5px" }}>Cart
                                         <div className="items-count">
@@ -181,7 +180,7 @@ const DesktopHeader = () => {
                 <div className="header-belt">
                     <div className="header-left">
                         <div className="logo-box">
-                            <img className="site-logo" src={`${HOSTNAME}/assets/logo/logo.png`} alt="rk products" />
+                            <img className="site-logo" src="/assets/logo/logo.png" alt="rk products" />
                         </div>
                     </div>
                     <div className="header-right">

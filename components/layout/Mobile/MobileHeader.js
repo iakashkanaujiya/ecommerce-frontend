@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { isAuthenticated } from "../../../api/auth/authApi";
 import { getAllCategories } from "../../../api/product/category";
 import { loadCart } from "../../../api/product/cart";
-import Link from "next/link";
 import { searchProduct } from "../../../api/product/product"
-const HOSTNAME = process.env.HOSTNAME;
+
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
 const MobileHeader = () => {
@@ -106,12 +105,12 @@ const MobileHeader = () => {
                         </div>
                     </div>
                     <div className="header-middle">
-                        <a href={`${HOSTNAME}/`}>
+                        <a href="/">
                             <img className="site-logo" src="/assets/logo/logo-mobile.png" alt="apnikiranadukaan" />
                         </a>
                     </div>
                     <div className="header-right">
-                        <a href={`${HOSTNAME}/cart`} className="shopping-cart">
+                        <a href="/cart" className="shopping-cart">
                             <div className="count">
                                 {totalCartProducts}
                             </div>
@@ -129,9 +128,9 @@ const MobileHeader = () => {
                 <div className="header-belt">
                     <div className="header-left">
                         <button className="btn category">
-                            <Link href={`${HOSTNAME}/categories`}>
+                            <a href="/categories`">
                                 Products
-                            </Link>
+                            </a>
                         </button>
                     </div>
                     <div className="header-right">
@@ -147,7 +146,7 @@ const MobileHeader = () => {
                             <ul className="result-list">
                                 {products.map((product, index) => (
                                     <li key={index} className="product">
-                                        <a href={`${HOSTNAME}/products/${product._id}`}>
+                                        <a href={`/products/${product._id}`}>
                                             <div className="image-wrap">
                                                 <img className="image" src={`${ImageRootPath}/${product.images[0].src}`} alt={product.images[0].alt} />
                                             </div>
@@ -172,7 +171,7 @@ const MobileHeader = () => {
                     <div className="navigation">
                         <nav className="navbar">
                             {authenticate ? (
-                                <a href={`${HOSTNAME}/user/profile`}>
+                                <a href="/user/profile">
                                     <div className="user login">
                                         <div className="profile-icon-wrap">
                                             <i className="bi bi-person-fill icon" />
@@ -183,7 +182,7 @@ const MobileHeader = () => {
                                     </div>
                                 </a>
                             ) : (
-                                <a href={`${HOSTNAME}/auth/signin`}>
+                                <a href="/auth/signin">
                                     <div className="user login">
                                         <div className="profile-icon-wrap">
                                             <i className="bi bi-person-fill icon" />
@@ -200,38 +199,38 @@ const MobileHeader = () => {
                             <div className="user-profile-options">
                                 <ul className="menu-list">
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/`}>
+                                        <a href="/">
                                             <i className="bi bi-house-fill icon" />
                                             <span>At Home</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/user/profile`} style={itemStyle}>
+                                        <a href="/user/profile" style={itemStyle}>
                                             <i className="bi bi-person-fill icon" />
                                             <span>My Profile</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/user/address`} style={itemStyle}>
+                                        <a href="/user/address" style={itemStyle}>
                                             <i className="bi bi-geo-alt-fill" />
                                             <span>My Addresses</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/user/orders`} style={itemStyle}>
+                                        <a href="/user/orders" style={itemStyle}>
                                             <i className="bi bi-bag-fill" />
                                             <span>My Orders</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/cart`} style={itemStyle}>
+                                        <a href="/cart" style={itemStyle}>
                                             <i className="bi bi-cart-dash-fill" />
                                             <span>My Cart</span>
                                         </a>
                                     </li>
                                     {authenticate && (
                                         <li className="item">
-                                            <a href={`${HOSTNAME}/auth/signout`}>
+                                            <a href="/auth/signout">
                                                 <i className="bi bi-person-x-fill" />
                                                 <span>Sign Out</span>
                                             </a>
@@ -243,14 +242,14 @@ const MobileHeader = () => {
                                 <ul className="menu-list">
                                     <div className="title">Products</div>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/products`}>
+                                        <a href="/products">
                                             <i className="bi bi-record2" />
                                             <span>All Products</span>
                                         </a>
                                     </li>
                                     {categories.map((cate, index) => (
                                         <li key={index} className="item">
-                                            <a href={`${HOSTNAME}/products/category/${cate._id}`}>
+                                            <a href={`/products/category/${cate._id}`}>
                                                 <i className="bi bi-record2" />
                                                 <span>{cate.name}</span>
                                             </a>
@@ -262,25 +261,25 @@ const MobileHeader = () => {
                                 <div className="title">Others</div>
                                 <ul className="menu-list">
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/about`}>
+                                        <a href="/about">
                                             <i className="bi bi-building" />
                                             <span>About Us</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/contact`}>
+                                        <a href="/contact">
                                             <i className="bi bi-chat-right-text" />
                                             <span>Contact Us</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/refund`}>
+                                        <a href="/refund">
                                             <i className="bi bi-clipboard-data" />
                                             <span>Return and Refund policy</span>
                                         </a>
                                     </li>
                                     <li className="item">
-                                        <a href={`${HOSTNAME}/privacy-policy`}>
+                                        <a href="/privacy-policy">
                                             <i className="bi bi-journal-check" />
                                             <span>Terms & conditions</span>
                                         </a>
