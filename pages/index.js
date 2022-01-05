@@ -37,7 +37,7 @@ const Home = ({ categories, subCategories }) => {
                   <div className="title">
                     <div>{category.name}</div>
                   </div>
-                  <div className="sub-category-list row">
+                  <div className="sub-category-list row" style={{marginLeft: "0", marginRight: "0"}}>
                     {
                       subCategories?.map((subCate, index) => {
                         if (subCate.category.name == category.name) {
