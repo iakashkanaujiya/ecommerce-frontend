@@ -16,8 +16,6 @@ import OrderSummery from "../../components/checkout/orderSummery";
 import PaymentOption from "../../components/checkout/paymentOptions";
 import CheckoutBox from "../../components/checkout/checkout";
 
-const HOSTNAME = process.env.HOSTNAME;
-
 // Component
 const Checkout = () => {
 
@@ -133,7 +131,7 @@ const Checkout = () => {
         if (paymentType == "paytm") {
             /* This redirect url will go to the backend server,
             * and user will be redirected to the Frontend when payment either finish or deny  */
-            var hostname = HOSTNAME;
+            var hostname = "https://ecommerce-frontend-iakashkanaujiya.vercel.app";
             var redirectUrl = encodeURIComponent(`${hostname}/checkout/payment/paytm/result?paymentType=${paymentType}&id=${id}&orderId=${orderId}`);
             // id is the ObjectID o the Database
             // OrderId is the acutal OrderID of the Order to track
