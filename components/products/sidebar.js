@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-const HOSTNAME = process.env.HOSTNAME;
 
 const SideBar = ({ categories, subCategories }) => {
 
@@ -17,12 +16,12 @@ const SideBar = ({ categories, subCategories }) => {
                 <h5 className="title">Products Category</h5>
                 <ul className="menu-list">
                     <li className="menu-item">
-                        <a href={`${HOSTNAME}/products`}>All Products</a>
+                        <a href={`/products`}>All Products</a>
                     </li>
                     {categories.map((category, index) => {
                         return (
                             <li key={index} className="menu-item">
-                                <a href={`${HOSTNAME}/products/category/${category._id}`}>{category.name}</a>
+                                <a href={`/products/category/${category._id}`}>{category.name}</a>
                             </li>
                         );
                     })}
