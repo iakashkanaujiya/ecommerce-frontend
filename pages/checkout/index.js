@@ -16,6 +16,8 @@ import OrderSummery from "../../components/checkout/orderSummery";
 import PaymentOption from "../../components/checkout/paymentOptions";
 import CheckoutBox from "../../components/checkout/checkout";
 
+const HOSTNAME = process.env.HOSTNAME;
+
 // Component
 const Checkout = () => {
 
@@ -131,7 +133,7 @@ const Checkout = () => {
         if (paymentType == "paytm") {
             /* This redirect url will go to the backend server,
             * and user will be redirected to the Frontend when payment either finish or deny  */
-            var redirectUrl = encodeURIComponent(`/checkout/payment/paytm/result?paymentType=${paymentType}&id=${id}&orderId=${orderId}`);
+            var redirectUrl = encodeURIComponent(`${HOSTNAME}/checkout/payment/paytm/result?paymentType=${paymentType}&id=${id}&orderId=${orderId}`);
             // id is the ObjectID o the Database
             // OrderId is the acutal OrderID of the Order to track
             createPaytmTransaction(id, userId, token, redirectUrl).then(data => {
