@@ -146,12 +146,18 @@ const Checkout = () => {
                 } else {
                     setLoading(false);
                     const { body, params } = data;
-                    router.push(`/checkout/payment/paytm?mid=${params.mid}&orderId=${params.orderId}&txnToken=${body.txnToken}`);
+                    router.push({
+                        pathname: "/checkout/payment/paytm",
+                        query: { ...router.query, mid: params.mid, orderId: params.orderId, txnToken: body.txnToken }
+                    });
                 }
             }).catch(err => console.log(err));
         } else if (paymentType == "cod") {
             setTimeout(() => {
-                router.push(`/checkout/payment/cod/result?paymentType=${paymentType}&id=${id}`);
+                router.push({
+                    pathname: "/checkout/payment/cod/result",
+                    query: { ...router.query, paymentType: paymentType, id: id }
+                });
             }, 2000);
         }
     };
