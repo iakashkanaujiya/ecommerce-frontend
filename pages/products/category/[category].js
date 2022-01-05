@@ -11,8 +11,6 @@ import ProductsList from "../../../components/products/productsList";
 import ProductsFilter from "../../../components/products/productsFilter";
 import SideBar from "../../../components/products/sidebar";
 
-const HOSTNAME = process.env.HOSTNAME;
-
 const Products = ({ products, categories, subCategories }) => {
     return (
         <Fragment>
@@ -35,7 +33,6 @@ const Products = ({ products, categories, subCategories }) => {
                         <div className="col-lg-9 col-md-12 main">
                             <ProductsList
                                 products={products}
-                                HOSTNAME={HOSTNAME}
                             />
                         </div>
                     </div>

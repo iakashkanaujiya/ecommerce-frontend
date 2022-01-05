@@ -1,6 +1,6 @@
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
-const RelatedProducts = ({ products, HOSTNAME }) => {
+const RelatedProducts = ({ products }) => {
     return (
         <div className="row related-products">
             <div className="title">
@@ -18,7 +18,7 @@ const RelatedProducts = ({ products, HOSTNAME }) => {
                                             parseFloat(product.variation[Object.keys(product.variation)[0]][0].price)) * 100
                                     )) + "% OFF"}
                                 </label>
-                                <a href={`${HOSTNAME}/products/${product._id}`}>
+                                <a href={`/products/${product._id}`}>
                                     <img
                                         className="product-image"
                                         src={ImageRootPath + "/" + product.images[0].src}

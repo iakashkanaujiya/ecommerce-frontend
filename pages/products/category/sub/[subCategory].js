@@ -4,16 +4,12 @@ import Head from "next/head";
 // API methods
 import { getAllProducts } from "../../../../api/product/product";
 import { getAllCategories, getAllSubCategories } from "../../../../api/product/category";
-import { addItemtoCart } from "../../../../api/product/cart";
 
 // components
 import Layout from "../../../../components/layout/Layout";
 import ProductsList from "../../../../components/products/productsList";
 import ProductsFilter from "../../../../components/products/productsFilter";
 import SideBar from "../../../../components/products/sidebar";
-
-// Hostname
-const HOSTNAME = process.env.HOSTNAME;
 
 const Products = ({ products, categories, subCategories }) => {
 
@@ -38,7 +34,6 @@ const Products = ({ products, categories, subCategories }) => {
                         <div className="col-lg-9 col-md-12 main">
                             <ProductsList
                                 products={products}
-                                HOSTNAME={HOSTNAME}
                             />
                         </div>
                     </div>

@@ -1,12 +1,7 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
-
-const HOSTNAME = process.env.HOSTNAME;
 
 const Custom404 = () => {
-
-    const router = useRouter();
 
     return (
         <Fragment>
@@ -16,16 +11,16 @@ const Custom404 = () => {
             <div id="err-page">
                 <div className="home-page-button">
                     <button>
-                        <a href={HOSTNAME}>Home</a>
+                        <a href="/">Home</a>
                     </button>
                 </div>
                 <div className="content-box">
                     <div className="err-img">
-                        <img src={`${HOSTNAME}/assets/images/background/404.png`} alt="" />
+                        <img src={`/assets/images/background/404.png`} alt="" />
                     </div>
                     <div className="err-text">
                         <h1>404</h1>
-                        <p>The requested URL <strong>{HOSTNAME + router.asPath}</strong> was not found on this webiste. Click the Home button to visit the home page.</p>
+                        <p>The requested URL was not found on this webiste. Click the Home button to visit the home page.</p>
                     </div>
                 </div>
             </div>
