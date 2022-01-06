@@ -147,7 +147,7 @@ const Checkout = () => {
                     setLoading(false);
                     const { body, params } = data;
                     router.push({
-                        pathname: "/checkout/payment/paytm",
+                        pathname: `${hostname}/checkout/payment/paytm`,
                         query: { ...router.query, mid: params.mid, orderId: params.orderId, txnToken: body.txnToken }
                     });
                 }
@@ -155,7 +155,7 @@ const Checkout = () => {
         } else if (paymentType == "cod") {
             setTimeout(() => {
                 router.push({
-                    pathname: "/checkout/payment/cod/result",
+                    pathname: `${hostname}/checkout/payment/cod/result`,
                     query: { ...router.query, paymentType: paymentType, id: id }
                 });
             }, 2000);
