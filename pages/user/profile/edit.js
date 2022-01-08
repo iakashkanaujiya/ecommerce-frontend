@@ -1,9 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
+import { Fragment, useEffect, useState } from "react";
+
+// components
 import Layout from "../../../components/layout/Layout";
-import { isAuthenticated, updateAuthenticatedUser } from "../../../api/auth/authApi";
 import Redirect from "../../../Redirect";
 import Menu from "../../../components/user/Menu";
+
+// APIs
+import { isAuthenticated, updateAuthenticatedUser } from "../../../api/auth/authApi";
 import { getUser, updateUser } from "../../../api/user/user";
 
 const ProfileEdit = () => {
@@ -56,6 +60,7 @@ const ProfileEdit = () => {
         preloadData();
     }, []);
 
+    // Handle the User Inputs
     const handleInputChange = (name) => (event) => {
         setError("");
         setSuccess(false);
@@ -77,6 +82,7 @@ const ProfileEdit = () => {
         }
     };
 
+    // Update the User Profile
     const onUpdateProfile = () => {
         setLoading(true);
         if (!firstname || !lastname || !email || !phone) {
@@ -102,6 +108,7 @@ const ProfileEdit = () => {
         }
     }
 
+    // Redirect to profile page
     const reidrectToProfile = () => {
         if (redirect) {
             return <Redirect to="/user/profile" />

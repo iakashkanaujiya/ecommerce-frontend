@@ -1,15 +1,18 @@
-import { Fragment, useEffect, useState } from "react";
-import Layout from "../../../../components/layout/Layout";
-import { isAuthenticated } from "../../../../api/auth/authApi";
-import Redirect from "../../../../Redirect";
-import Menu from "../../../../components/user/Menu";
-import { updateUserAddress, getAddress } from "../../../../api/user/user";
-
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
+
+// components
+import Layout from "../../../../components/layout/Layout";
+import Menu from "../../../../components/user/Menu";
+
+// APIs
+import Redirect from "../../../../Redirect";
+import { isAuthenticated } from "../../../../api/auth/authApi";
+import { updateUserAddress, getAddress } from "../../../../api/user/user";
 
 const Address = ({ addressData }) => {
-
+    // router object
     const router = useRouter();
 
     // error, loading, Success
@@ -150,6 +153,12 @@ const Address = ({ addressData }) => {
         }
     };
 
+    // On Cancel to edit the form
+    const onCancel = (e) => {
+        e.preventDefault();
+        setRedirect(true);
+    };
+
     return (
         <Fragment>
             <Head>
@@ -243,7 +252,7 @@ const Address = ({ addressData }) => {
                                                         type="text"
                                                         name="state"
                                                         placeholder="state name"
-                                                        style={{width: "90%"}}
+                                                        style={{ width: "90%" }}
                                                     />
                                                 </div>
                                             </div>
@@ -276,7 +285,7 @@ const Address = ({ addressData }) => {
                                                     )}
                                                 </button>
                                                 <button
-                                                    onClick={() => { setRedirect(true) }}
+                                                    onClick={onCancel}
                                                     className="btn cancel"
                                                 >
                                                     Cancel

@@ -31,7 +31,6 @@ const Checkout = () => {
     const { id, token, authenticate } = user;
 
     //Load all the products from the shopping cart
-    const [orderId, setOrderId] = useState(null);
     const [order, setOrder] = useState({
         items: [],
         totalPrice: 0,
@@ -128,10 +127,10 @@ const Checkout = () => {
 
     // Payment
     const makePayment = async (id, orderId, userId, token) => {
+        var hostname = "https://ecommerce-frontend-iakashkanaujiya.vercel.app";
         if (paymentType == "paytm") {
             /* This redirect url will go to the backend server,
             * and user will be redirected to the Frontend when payment either finish or deny  */
-            var hostname = "https://ecommerce-frontend-iakashkanaujiya.vercel.app";
             var redirectUrl = encodeURIComponent(`${hostname}/checkout/payment/paytm/result?paymentType=${paymentType}&id=${id}&orderId=${orderId}`);
             // id is the ObjectID o the Database
             // OrderId is the acutal OrderID of the Order to track
@@ -148,7 +147,12 @@ const Checkout = () => {
                     const { body, params } = data;
                     router.push({
                         pathname: `${hostname}/checkout/payment/paytm`,
-                        query: { ...router.query, mid: params.mid, orderId: params.orderId, txnToken: body.txnToken }
+                        query: {
+                            ...router.query,
+                            mid: params.mid,
+                            orderId: params.orderId,
+                            txnToken: body.txnToken
+                        }
                     });
                 }
             }).catch(err => console.log(err));

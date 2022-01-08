@@ -1,8 +1,12 @@
-import { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
+import { Fragment, useEffect, useState } from "react";
+
+// components
 import Layout from "../../../components/layout/Layout";
-import { isAuthenticated } from "../../../api/auth/authApi";
 import Redirect from "../../../Redirect";
+
+// APIs
+import { isAuthenticated } from "../../../api/auth/authApi";
 
 const User = () => {
 

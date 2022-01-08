@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Link from "next/link";
+
+// APIs
 import { isAuthenticated } from "../../../api/auth/authApi";
 import { getAllCategories } from "../../../api/product/category";
 import { loadCart } from "../../../api/product/cart";
@@ -131,9 +134,9 @@ const MobileHeader = () => {
                 <div className="header-belt">
                     <div className="header-left">
                         <button className="btn category">
-                            <a href="/categories">
+                            <Link href="/categories">
                                 Products
-                            </a>
+                            </Link>
                         </button>
                     </div>
                     <div className="header-right">

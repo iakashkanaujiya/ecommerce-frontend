@@ -89,6 +89,25 @@ const Order = ({ id }) => {
     //         }).catch(err => console.log(err));
     // };
 
+    const renderItems = (items) => {
+        return (
+            items?.map((item, index) => (
+                <li key={index} className="item-wrap">
+                    <div className="item">
+                        <div className="img-wrap">
+                            <img src={`${ImageRootPath}/${item.product.images[0].src}`} alt="" />
+                        </div>
+                        <div className="details-wrap">
+                            <div className="name">{item.product.name.substring(0, 25)}...</div>
+                            <div className="quantity">Quantity: {item.quantity}</div>
+                            <div className="subtotal">₹{item.subTotal}</div>
+                        </div>
+                    </div>
+                </li>
+            ))
+        )
+    }
+
     return (
         <Fragment>
             <Head>
@@ -116,20 +135,7 @@ const Order = ({ id }) => {
                                                 <div className="ordered-wrap">
                                                     <div className="ordered-items">
                                                         <ul className="items-list">
-                                                            {items?.map((item, index) => (
-                                                                <li key={index} className="item-wrap">
-                                                                    <div className="item">
-                                                                        <div className="img-wrap">
-                                                                            <img src={`${ImageRootPath}/${item.product.images[0].src}`} alt="" />
-                                                                        </div>
-                                                                        <div className="details-wrap">
-                                                                            <div className="name">{item.product.name.substring(0, 25)}...</div>
-                                                                            <div className="quantity">Quantity: {item.quantity}</div>
-                                                                            <div className="subtotal">₹{item.subTotal}</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            ))}
+                                                            {renderItems(items)}
                                                         </ul>
                                                     </div>
                                                 </div>

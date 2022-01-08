@@ -16,7 +16,7 @@ const AddressForm = (props) => {
         secondaryPhone,
         handleInputChange,
         handleSubmit,
-        setRedirect
+        onCancel
     } = props;
 
     return (
@@ -133,7 +133,7 @@ const AddressForm = (props) => {
                         )}
                     </button>
                     <button
-                        onClick={() => { setRedirect(true) }}
+                        onClick={onCancel}
                         className="btn cancel"
                     >
                         Cancel

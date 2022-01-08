@@ -1,10 +1,14 @@
-import { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
+import { Fragment, useEffect, useState } from "react";
+
+// components
 import Layout from "../../../components/layout/Layout";
-import { isAuthenticated } from "../../../api/auth/authApi";
-import Redirect from "../../../Redirect";
 import Menu from "../../../components/user/Menu";
 import AddressForm from "../../../components/user/address/form";
+
+// APIs
+import Redirect from "../../../Redirect";
+import { isAuthenticated } from "../../../api/auth/authApi";
 import { addUserAddress } from "../../../api/user/user";
 
 const Address = () => {
@@ -123,6 +127,13 @@ const Address = () => {
         }
     };
 
+
+    // On Cancel to edit the form
+    const onCancel = (e) => {
+        e.preventDefault();
+        setRedirect(true);
+    };
+
     return (
         <Fragment>
             <Head>
@@ -140,7 +151,7 @@ const Address = () => {
                                     <p>Add Your Address</p>
                                 </div>
                                 <div className="body">
-                                    <AddressForm 
+                                    <AddressForm
                                         error={error}
                                         loading={loading}
                                         success={success}
@@ -156,7 +167,7 @@ const Address = () => {
                                         secondaryPhone={secondaryPhone}
                                         handleInputChange={handleInputChange}
                                         handleSubmit={handleSubmit}
-                                        setRedirect={setRedirect}
+                                        onCancel={onCancel}
                                     />
                                 </div>
                             </div>
@@ -166,7 +177,7 @@ const Address = () => {
                 {RedirectToAddressPage()}
                 {RedirectUserIfNotAuthenticated()}
             </Layout>
-        </Fragment >
+        </Fragment>
     );
 };
 

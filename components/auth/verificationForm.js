@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const VerificationForm = ({ error, setError, onSubmitVerificationCode, phone, onSubmit }) => {
+const VerificationForm = ({ error, loading, setError, onSubmitVerificationCode, phone, onSubmit }) => {
 
     const [code, setCode] = useState({
         first: "",
@@ -11,22 +11,43 @@ const VerificationForm = ({ error, setError, onSubmitVerificationCode, phone, on
 
     const { first, second, third, fourth } = code;
 
+    // Handle the user input
     const handleChange = (name) => (event) => {
         setError("");
-        setCode({ ...code, [name]: event.target.value });
+
+        var validNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var value = event.target.value;
+
+        if (value in validNumbers) {
+            setCode({ ...code, [name]: value });
+        } else {
+            event.target.value = "";
+        }
     };
 
+    // Navigate to next input 
     const goToNextInput = (e) => {
         var key = e.which;
-        var t = e.target;
-        var nsib = e.target.nextElementSibling;
-        var psib = e.target.previousElementSibling;
+        var el = e.target;
 
-        if (key !== 8) {
-            if (nsib) nsib.focus();
+        if (el.value != "" || key == 8) {
+            var nsib = e.target.nextElementSibling;
+            var psib = e.target.previousElementSibling;
+
+            if (key !== 8) {
+                !!nsib && nsib.focus();
+            } else {
+                if(!!el.value) {
+                    el.value = "";
+                    !!psib && psib.focus();
+                } else {
+                    !!psib && psib.focus();
+                }
+            }
         } else {
-            if (psib) psib.focus();
+            setError("Only numbers are allowed.")
         }
+
     }
 
     const [seconds, setSeconds] = useState(30);
@@ -104,7 +125,9 @@ const VerificationForm = ({ error, setError, onSubmitVerificationCode, phone, on
                                 onSubmitVerificationCode(first + second + third + fourth);
                             }}
                             className="btn login">
-                            <span>Verify</span>
+                            <span>
+                                {loading ? <div className="loader" style={{ "--color": "#fff" }}></div> : <span>Verify</span>}
+                            </span>
                         </button>
                         <div style={{ padding: "20px 0" }} className="options">
                             <button

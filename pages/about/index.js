@@ -1,7 +1,10 @@
 import Head from "next/head";
 import { Fragment } from "react";
+
+// Components
 import Layout from "../../components/layout/Layout"
 
+// Functional Component
 const About = () => {
     return (
         <Fragment>

@@ -23,7 +23,7 @@ const SignInForm = ({ onChange, onSubmit, error, loading, phone }) => {
                         </div>
                     </div>
                     <div className="btn-wrap">
-                        <button onClick={onSubmit} className="btn login" disabled={!phone}>
+                        <button onClick={onSubmit} className="btn login" disabled={phone.length != 10}>
                             <span>
                                 {loading ? <div className="loader" style={{ "--color": "#fff" }}></div> : <span>Next</span>}
                             </span>

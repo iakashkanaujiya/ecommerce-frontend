@@ -1,10 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
+import { Fragment, useEffect, useState } from "react";
+
+// components
 import Layout from "../components/layout/Layout";
 import Slider from "../components/home/Slider";
+
+// APIs
 import { getAllCategories, getAllSubCategories } from "../api/product/category";
 
-const HOSTNAME = process.env.HOSTNAME;
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
 const Home = ({ categories, subCategories }) => {
@@ -37,13 +40,13 @@ const Home = ({ categories, subCategories }) => {
                   <div className="title">
                     <div>{category.name}</div>
                   </div>
-                  <div className="sub-category-list row" style={{marginLeft: "0", marginRight: "0"}}>
+                  <div className="sub-category-list row" style={{ marginLeft: "0", marginRight: "0" }}>
                     {
                       subCategories?.map((subCate, index) => {
                         if (subCate.category.name == category.name) {
                           return (
                             <div className="sub-category-view col-xl-3 col-md-4 col-sm-6 col-6" key={index}>
-                              <a href={`${HOSTNAME}/products/category/sub/${subCate._id}`}>
+                              <a href={`/products/category/sub/${subCate._id}`}>
                                 <div className="image-wrap">
                                   <img src={`${ImageRootPath}/${subCate.image.src}`} alt={subCate.name} className="image" />
                                 </div>

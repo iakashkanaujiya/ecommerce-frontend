@@ -9,10 +9,13 @@ import { useRouter } from "next/router";
 import SignInForm from '../../components/auth/SignInForm';
 import VerificationForm from '../../components/auth/verificationForm';
 
+// Functional component
 const SignIn = () => {
 
+    // router object
     const router = useRouter();
 
+    // stateful varibale
     const [user, setUser] = useState({});
     const [phone, setPhone] = useState("");
     const [error, setError] = useState("");
@@ -54,7 +57,7 @@ const SignIn = () => {
             }
         }).catch(err => console.log(err));
     };
-    
+
     // Complete the SignIN on submit the verification code
     const onSubmitVerificationCode = (inputCode) => {
         if (parseInt(inputCode) !== user.verificationCode) {
@@ -62,15 +65,15 @@ const SignIn = () => {
         } else {
             //Set loading
             setLoading(true);
-            // Fire the SignIn request to complete the Sign IN
+            // Fire the SignIn request to complete the Sign In
             signIn(user.user._id).then(data => {
                 if (data.error) {
                     setLoading(false);
                     setError(data.error);
                 } else {
                     authenticate(data, () => {
-                        setLoading(false);
                         setRedirect(true);
+                        setLoading(false);
                     });
                 }
             }).catch(err => console.log(err));
@@ -85,19 +88,20 @@ const SignIn = () => {
             <div className="signin-page form-container-wrap">
                 {!verification ? (
                     <SignInForm
+                        phone={phone}
                         onChange={onChange}
                         onSubmit={onSubmit}
                         error={error}
                         loading={loading}
-                        phone={phone}
                     />
                 ) : (
                     <VerificationForm
-                        error={error}
-                        setError={setError}
                         phone={phone}
                         onSubmitVerificationCode={onSubmitVerificationCode}
                         onSubmit={onSubmit}
+                        error={error}
+                        loading={loading}
+                        setError={setError}
                     />
                 )}
             </div>

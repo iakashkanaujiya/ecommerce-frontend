@@ -1,5 +1,4 @@
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
-const HOSTNAME = process.env.HOSTNAME;
 
 const Products = ({ items, onChangeProductQuantity, deleteProductFromCart }) => {
     return (
@@ -7,7 +6,7 @@ const Products = ({ items, onChangeProductQuantity, deleteProductFromCart }) => 
             <ul className="product-list">
                 {items.map((item, index) => (
                     <li key={index} className="product">
-                        <a className="image-wrap" href={`${HOSTNAME}/products/${item.product._id}`}>
+                        <a className="image-wrap" href={`/products/${item.product._id}`}>
                             <div className="image">
                                 <img
                                     className="image"
