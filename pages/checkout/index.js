@@ -100,6 +100,14 @@ const Checkout = () => {
 
     // Fire the Backend request to create the order
     const createTheOrder = async (items) => {
+        // Create Order ID
+        var time = new Date();
+        var date = time.getDate();
+        var month = time.getMonth() == 0 ? time.getMonth() + "0" : time.getMonth();
+        var year = time.getFullYear();
+
+        const orderId = `ODI${date}${month}${year}`;
+
         let filterItems = [];
         // Filter the item, and replace the Product object with the Product Id
         // This ID will be saved in database to refer the Product Schema
@@ -117,20 +125,21 @@ const Checkout = () => {
                 address: deliveryAddress,
                 paymentType: paymentType,
                 status: "Pending",
-                placed: new Date()
+                placed: new Date(),
+                orderId
             },
-                id,
-                token
+                id, // user ID
+                token // Auth Token
             )
         );
     };
 
     // Payment
     const makePayment = async (id, orderId, userId, token) => {
-        var hostname = "https://ecommerce-frontend-iakashkanaujiya.vercel.app";
         if (paymentType == "paytm") {
             /* This redirect url will go to the backend server,
             * and user will be redirected to the Frontend when payment either finish or deny  */
+            var hostname = "https://ecommerce-frontend-iakashkanaujiya.vercel.app";
             var redirectUrl = encodeURIComponent(`${hostname}/checkout/payment/paytm/result?paymentType=${paymentType}&id=${id}&orderId=${orderId}`);
             // id is the ObjectID o the Database
             // OrderId is the acutal OrderID of the Order to track
@@ -146,7 +155,7 @@ const Checkout = () => {
                     setLoading(false);
                     const { body, params } = data;
                     router.push({
-                        pathname: `${hostname}/checkout/payment/paytm`,
+                        pathname: "/checkout/payment/paytm",
                         query: {
                             ...router.query,
                             mid: params.mid,
@@ -159,7 +168,7 @@ const Checkout = () => {
         } else if (paymentType == "cod") {
             setTimeout(() => {
                 router.push({
-                    pathname: `${hostname}/checkout/payment/cod/result`,
+                    pathname: "/checkout/payment/cod/result",
                     query: { ...router.query, paymentType: paymentType, id: id }
                 });
             }, 2000);
