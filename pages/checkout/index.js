@@ -101,12 +101,8 @@ const Checkout = () => {
     // Fire the Backend request to create the order
     const createTheOrder = async (items) => {
         // Create Order ID
-        var time = new Date();
-        var date = time.getDate();
-        var month = time.getMonth() == 0 ? time.getMonth() + "0" : time.getMonth();
-        var year = time.getFullYear();
-
-        const orderId = `ODI${date}${month}${year}`;
+        var time = Date.now().toString();
+        const orderId = `OD${time.slice(5,time.length)}`;
 
         let filterItems = [];
         // Filter the item, and replace the Product object with the Product Id
@@ -139,7 +135,7 @@ const Checkout = () => {
         if (paymentType == "paytm") {
             /* This redirect url will go to the backend server,
             * and user will be redirected to the Frontend when payment either finish or deny  */
-            var hostname = "https://ecommerce-frontend-iakashkanaujiya.vercel.app";
+            var hostname = process.env.HOSTNAME;
             var redirectUrl = encodeURIComponent(`${hostname}/checkout/payment/paytm/result?paymentType=${paymentType}&id=${id}&orderId=${orderId}`);
             // id is the ObjectID o the Database
             // OrderId is the acutal OrderID of the Order to track
