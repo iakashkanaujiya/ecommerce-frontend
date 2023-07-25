@@ -52,6 +52,7 @@ const Order = ({ id }) => {
             } else {
                 const d = new Date(data.placed);
                 const pd = months[d.getMonth()] + " " + d.getDate().toString() + ", " + d.getFullYear().toString();
+                console.log(data);
                 setOrder({ ...data, placed: pd });
                 setTimeout(() => {
                     setLoading(false);
@@ -128,6 +129,11 @@ const Order = ({ id }) => {
                                 <div className="col-lg-9 content-box">
                                     <div className="header">
                                         <p>Order: {order.orderId}</p>
+                                            <p style={{fontSize: "14px", marginTop: "20px"}}>
+                                                <a target="none" style={{ color: "red" }} href={order.invoice}>
+                                                Download Invoice
+                                            </a>
+                                        </p>
                                     </div>
                                     <div className="body">
                                         {!!Object.keys(order).length && (

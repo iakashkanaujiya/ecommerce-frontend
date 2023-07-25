@@ -4,7 +4,7 @@ import { Fragment } from "react";
 const Paytm = ({ mid, orderId, txnToken }) => {
 
     var postUrl = `https://securegw-stage.paytm.in/theia/api/v1/showPaymentPage?mid=${mid}&orderId=${orderId}`;
-
+    
     return (
         <Fragment>
             <Head>

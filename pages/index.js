@@ -7,11 +7,9 @@ import Slider from "../components/home/Slider";
 
 // APIs
 import { getAllCategories, getAllSubCategories } from "../api/product/category";
-
 const ImageRootPath = process.env.BACKEND_HOSTNAME;
 
 const Home = ({ categories, subCategories }) => {
-
   return (
     <Fragment>
       <Head>
